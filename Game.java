@@ -4,6 +4,7 @@ private static Character setupCharacter(String mvh){
 	System.out.println(mvh);
 	String namn = Keyboard.readString();
 	System.out.println("Och hitchans?");
+	int userHitChance = Keyboard.readInt();
 	Weapon vapen = setupWeapon();
 	Shield protection = setupShield();
 

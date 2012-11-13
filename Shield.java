@@ -30,7 +30,7 @@ public class Shield{
 		return damageAbsorbtion;
 	}
 	
-	public int damageAbsorbPercent(){
+	public double damageAbsorbPercent(){
 		double protection = 1-protection/100;
 		if(protection < 1)
 			protection = 1;

@@ -4,10 +4,10 @@ public class Character{
 	private String name;
 	private int hp;
 	private int hitChance;
-	private int protection;
+	private Shield protection;
 	private Weapon weapon;
 	
-	public Character(String name, int userHitChance, int protection, Weapon weapon){
+	public Character(String name, int userHitChance, Shield protection, Weapon weapon){
 		this.hp = 100;
 		this.hitChance = userHitChance;
 		this.name = name;
@@ -45,7 +45,7 @@ public class Character{
 		return hp;
 	}
 	
-	public int getProtection(){
+	public Shield getProtection(){
 		return protection;
 	}
 	
