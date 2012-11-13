@@ -4,14 +4,14 @@ public class Character{
 	private String name;
 	private int hp;
 	private int hitChance;
-	private Shield protection;
+	private Shield shield;
 	private Weapon weapon;
 	
-	public Character(String name, int userHitChance, Shield protection, Weapon weapon){
+	public Character(String name, int userHitChance, Shield shield, Weapon weapon){
 		this.hp = 100;
 		this.hitChance = userHitChance;
 		this.name = name;
-		this.protection = protection;
+		this.shield = shield;
 		this.weapon = weapon;
 	}
 	
@@ -20,8 +20,9 @@ public class Character{
 		int bonk = randomGenerator.nextInt(100);
 		if (bonk < this.hitChance){
 			
-			int damage = weapon.damage() * protection.damageAbsorbPercent();
-			System.out.println("Tjoff! " + name + " träffade.");
+			int damage = weapon.damage();
+			damage *= shield.damageAbsorbPercent();
+			System.out.println("Tjoff! " + name + " träffade med " + damage + " skada.");
 			return damage;
 			
 		}
@@ -45,8 +46,8 @@ public class Character{
 		return hp;
 	}
 	
-	public Shield getProtection(){
-		return protection;
+	public Shield getshield(){
+		return shield;
 	}
 	
 	public Weapon getWeapon(){

@@ -27,7 +27,7 @@ private static Character setupCharacter(String mvh){
 		
 	private static Shield setupShield(){
 		System.out.println("Vill du ha en Big Shield?");
-		String svar = Keyboard.readString;
+		String svar = Keyboard.readString();
 		if(svar.equalsIgnoreCase("ja"))
 			return new Shield();
 		System.out.println("Vilken sköld vill du ha?");
