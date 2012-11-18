@@ -1,4 +1,5 @@
 import java.util.*;
+import java.math.*;
 
 public class Character{
 	private String name;
@@ -19,9 +20,9 @@ public class Character{
 		Random randomGenerator = new Random();
 		int bonk = randomGenerator.nextInt(100);
 		if (bonk < this.hitChance){
-			
-			int damage = weapon.damage();
-			damage *= shield.damageAbsorbPercent();
+			double damage2 = weapon.damage()*shield.damageAbsorbPercent();
+			int damage = Math.round(damage2);
+			System.out.println(damage + " " + shield.damageAbsorbPercent());
 			System.out.println("Tjoff! " + name + " träffade med " + damage + " skada.");
 			return damage;
 			
