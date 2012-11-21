@@ -1,5 +1,6 @@
 import java.util.*;
 import java.math.*;
+import java.io.*;
 
 public class Character{
 	private String name;
@@ -20,15 +21,30 @@ public class Character{
 		Random randomGenerator = new Random();
 		int bonk = randomGenerator.nextInt(100);
 		if (bonk < this.hitChance){
-			double damage2 = weapon.damage()*shield.damageAbsorbPercent();
-			int damage = Math.round(damage2);
-			System.out.println(damage + " " + shield.damageAbsorbPercent());
+			int weaponDamage = weapon.damage();
+			double shieldAbsorb = shield.damageAbsorbPercent();
+			double damage2 = weaponDamage*shieldAbsorb;
+			System.out.println(weapon.damage() + " " + shield.damageAbsorbPercent() + " " + damage2);
+			int damage = (int)Math.round(damage2);
 			System.out.println("Tjoff! " + name + " träffade med " + damage + " skada.");
 			return damage;
 			
 		}
 		System.out.println("Klang! " + name + " missade.");
 		return 0;
+	}
+	
+	public void saveCharacter(){
+		String filnamn = "charsave.txt";
+		String resultat = name + " " + hp + " " + shield;
+		try{
+			FileWriter fw = new FileWriter(new File(filnamn));
+			fw.write(resultat);
+			fw.close();
+		}
+		catch(IOException e){
+		System.out.println("Hoppsan (" + e.toString() + ")");
+		}
 	}
 	
 	public void dies(){
